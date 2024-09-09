@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <title>Banking Dashboard</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+
+  <body>
+    <header>
+      <ul>
+        <li>
+          <img
+            src="C:\Users\Sai\Desktop\New folder\banking Dashboard\logo.jpeg"
+            class="logo"
+          />
+        </li>
+        <li><a class="active" href="#home">HOME</a></li>
+        <li><a href="current balance.html">CURRENT BALANCE</a></li>
+        <li><a href="#DEPOSITE">DEPOSIT</a></li>
+        <li><a href="#WITHDRAW">WITHDRAW</a></li>
+      </ul>
+    </header>
+    <div>
+      <h2>CURRENT BALANCE</h2>
+      <p>YOUR CURRENT BALANCE IS:</p>
+
+      <div class="balance" id="balanceDisplay"><b>$1000.00</b></div>
+      <p id="currentbalance"></p>
+      <hr />
+      <br /><br />
+
+      <div class="container">
+        <h2>DEPOSIT MONEY</h2>
+        <input
+          type="number"
+          id="depositAmount"
+          placeholder="Enter amount"
+          min="0"
+        />
+        <button id="depositButton">Deposit</button>
+      </div>
+
+      <br /><br />
+      <hr />
+      <br />
+
+      <h2>WITHDRAW MONEY</h2>
+      <input
+        type="number"
+        id="withdrawAmount"
+        placeholder="Enter withdrawal amount"
+        min="0"
+      />
+      <button id="withdrawButton">Withdraw</button>
+    </div>
+
+    <script>
+      let balance = 1000;
+
+      //Current balance
+      function updateBalanceDisplay() {
+        const balanceDisplay = document.getElementById("balanceDisplay");
+        balanceDisplay.textContent = `Current Balance: $${balance.toFixed(2)}`;
+      }
+
+      // deposit amount
+      document
+        .getElementById("depositButton")
+        .addEventListener("click", function () {
+          const depositInput = document.getElementById("depositAmount");
+          const depositAmount = parseFloat(depositInput.value);
+
+          // Validate the input
+          if (!isNaN(depositAmount) && depositAmount > 0) {
+            balance += depositAmount; 
+            updateBalanceDisplay(); 
+            depositInput.value = ""; 
+          } else {
+            alert("Please enter a valid amount to deposit.");
+          }
+        });
+      document
+        .getElementById("withdrawButton")
+        .addEventListener("click", function () {
+          const withdrawInput = document.getElementById("withdrawAmount");
+          const withdrawAmount = parseFloat(withdrawInput.value);
+
+          // Validate the input
+          if (!isNaN(withdrawAmount) && withdrawAmount > 0) {
+            if (withdrawAmount <= balance) {
+              balance -= withdrawAmount; 
+              updateBalanceDisplay();
+              withdrawInput.value = ""; 
+            } else {
+              alert("Insufficient funds for this withdrawal.");
+            }
+          } else {
+            alert("Please enter a valid amount to withdraw.");
+          }
+        });
+    </script>
+
+    <footer>
+      <p>
+        Author:IDEAL BANK<br />
+        <a href="idealbank@gmail.com">idealbank@gmail.com</a>
+      </p>
+    </footer>
+  </body>
+</html>

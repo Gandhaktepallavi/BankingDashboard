@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .balance {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Bank Account</h2>
+    
+    
+    <h3>Withdraw Money</h3>
+    <input type="number" id="withdrawAmount" placeholder="Enter withdrawal amount" min="0" />
+    <button id="withdrawButton">Withdraw</button>
+    
+    <div class="balance" id="balanceDisplay">Current Balance: $4000.00</div>
+</div>
+
+<script>
+    // Initial balance
+    let balance = 4000;
+
+    // Function to update the balance display
+    function updateBalanceDisplay() {
+        const balanceDisplay = document.getElementById('balanceDisplay');
+        balanceDisplay.textContent = `Current Balance: $${balance.toFixed(2)}`;
+    }
+
+    // Event listener for the deposit button
+
+
+    // Event listener for the withdraw button
+    document.getElementById('withdrawButton').addEventListener('click', function() {
+        const withdrawInput = document.getElementById('withdrawAmount');
+        const withdrawAmount = parseFloat(withdrawInput.value);
+
+        // Validate the input
+        if (!isNaN(withdrawAmount) && withdrawAmount > 0) {
+            if (withdrawAmount <= balance) {
+                balance -= withdrawAmount; // Update the balance
+                updateBalanceDisplay(); // Update the displayed balance
+                withdrawInput.value = ''; // Clear the input field
+            } else {
+                alert('Insufficient funds for this withdrawal.');
+            }
+        } else {
+            alert('Please enter a valid amount to withdraw.');
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+body{
+    text-align: center;
+    background-color: rgb(181, 158, 169);
+}
+div.login{
+    width: 100%;
+    background-color: rgb(51, 7, 19);
+    padding: 10px 20px;
+}
+
+a.login:link{
+    color: rgb(181, 158, 169);
+    background-color: rgb(51, 7, 19);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none; 
+    
+    
+}
+a.login:hover{
+    color: rgb(59, 26, 42);
+    background-color: rgb(185, 163, 173);
+    border: 5px solid rgb(59, 26, 42);
+    
+}
+hr{
+    color: rgb(59, 26, 42);
+}
+img.bank{
+    width: 80%;
+}
+footer{
+    width: 100%;
+    background-color: rgb(117, 37, 72);
+    padding: 5px;
+    position: fixed;
+    bottom: 0%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(117, 37, 72);;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    background-color: rgb(117, 37, 72);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color:rgb(185, 163, 173);
+    color: rgb(117, 37, 72);;
+  }
+  img.logo{
+    height: 50px;
+    width: 50px;
+    padding-bottom: 0px;
+  }
